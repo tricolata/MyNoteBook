@@ -1,0 +1,111 @@
+A Cloud Guru
+
+IAM (Identity and Access Management)
+    * Create and manage entities access permissions.
+    * Centralized * Access * Permission * Identity Federation
+    * features
+        * multi*factor Authentiction
+        * temporary access 
+        * password policy (rotation)
+        * Integrated 
+        * Complience (PCI DSS)
+    * Objects
+        * Users * groups * roles * (policy - doc that define perm. for U, G, R)
+        * AWS access policy is written in JSON
+    * Testing 
+        * https://policysim.aws.amazon.com
+
+    **ToDo**    * Implement RSA SecurID using SSO SAML agent
+                * Understand roles 
+
+EC2 (Elastic Compute Cloud)
+    * Benefits
+        * Secure, resizable compute capacity in the cloud.
+        * Like VM but hosted in AWS 
+        * Makes web-based cloud computing easier && gives you full control.
+        * Solved the problem of on-prem infrastructure.
+    * Pricing
+        * On Demand 
+            * Flexible * Short term * Testing the water
+        * Reserved 
+            * Predictable usage * Pay Up-Front * 72% off on-demand * choose time frame
+        * Spot 
+            * Flexible (only) * Cost-Senstive (only) * Urgent Capacity * 90% discount
+        * Dedicated 
+            * Specific needs (Complience or Licensing restriction) * on-demand or reserved
+        ** Saving Plans && Price Calculator
+    * Types
+        ** Hardware (cpu, memory, storage)
+        ** Capabilities (grouped into families)
+    * EBS
+        ** gp2 - general purpose (ssd) > 16000 IOPS 
+            *** gp3 (latest) > 20% cheaper
+        ** io1 - provisioned (ssd) > 64000 IOPS
+            *** io2 (latest) > same price as io1 but higher durability & higher iops per gib.
+        ** io2 block express (ssd) > 256000 IOPS and durability
+            data intenstive apps like oracle
+        ** st1 (hhd) > upto 500 MB/s per volume
+            *** for mountains of data , frequently accessed (ex. big data)
+            *** cant be boot volume 
+        ** sc1 (hdd) > cheapest, upto 250 MB/s per volume.
+            *** performace not factory and scan few per day. 
+        ** IOPS vs Throughput
+            *** IOPS measure number of r/w operation per second
+            *** Throughput measure number of bits r/w per second
+            *** IOPS for quick tranaction while Throughput for big data 
+        ** https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html
+    * Elastic LB
+        ** Application Load Balancer 
+        ** Network Load Balancer
+        ** Gateway Load Balancer 
+        ** Classic Load Balancer (legacy)
+            *** HTTP/HTTPs & web server is best handled by ALB
+            *** High performamce load balancing by NLB
+            *** legacy option. http & tcp by CLB
+            *** for 3rd-party virtual applicances handled by GLB
+            *** X-Forwarded-For - header option for IPv4 address of end user coming thru LB.
+    * Roles 
+        ** Roles is the preferred option to allow ec2 access to other services.
+            *** policies control a role's permissions.
+    * AWS CLI 
+        ** S3 > https://docs.aws.amazon.com/cli/latest/reference/s3/
+    * Route 53
+        ** Amazon's DNS service.
+    * RDS 
+        ** Relational Database (sql server, mysql, mariadb, oracle, postgres, aurora)
+        ** Good for OLTP
+        ** OLTP = process data from tranaction in real-time. 
+        ** OLAP = process complex queries to analyze histrocial data.
+        ** Multi-AZ = copy of your DB in another AZ. (on Standby. automatically switch if origional is down)
+        ** read-replica = read-only copy of your primary DB. 
+        ** Two ways to backup: DB Snapshot (manual) & Automated backup. 
+    * ElastiCache 
+        ** Store frequently quered data in memory.
+        ** two types. memcached & redis. 
+        ** Typical scenerio. read-heavy DB & data not changed frequently.
+        ** Multi-AZ
+            *** is for DR(Disaster Recovery), not improving performace. Cant connect to standby when primary DB is active.
+            *** to improve performance, increase read replica. Read Replica is read-only copy of primary DB.
+        ** Multi-AZ
+            *** is for DR(Disaster Recovery), not improving performace. Cant connect to standby when primary DB is active.
+            *** to improve performance, increase read replica. Read Replica is read-only copy of primary DB.
+    * System Manager Parameter Store 
+
+
+Exam Tips
+    IAM policy sim
+        * Test IAM permissions before you commit them to prod
+        * validate policy works
+        * great for troubleshooting. 
+    IAM
+        * IAM is universal not regional.
+        * New users have no permission when created.
+        * access keys and secret access keys given when user is created.
+            used for loggin in programmatically, not console. 
+        * roles give aws service access to act on your behalf. 
+    EBS 
+        * gp2 and gp3 for < 16000 IOPS
+        * io1 and io2 for > 16000 IOPS (io2 more iops per gib)
+        * io2 block express > 256000
+        ** HDD 
+        * st1 amd sc1 (cheapest and lowest performance)
