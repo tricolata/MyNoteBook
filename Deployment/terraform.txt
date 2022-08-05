@@ -1,0 +1,56 @@
+IaC - Infrastructure as Code. 
+    - allows you to build, change, and version infrastructure safely and easily.
+    - use config files to provision an inf instead of using gui.
+Terraform Language - syntax to declare resources in terraform. primary user interface.
+Terraform Configuration - complete document in Terraform Language that tells terraform how to manage a given infrastructure
+terraform - Terraform's CLI
+Terraform Cloud and Enterprise - more advanced versions of terraform which opertate as self-hosted applications. 
+Providers - Terraform relies on plugins called providers to interact with cloud providers. 
+            List of providers - https://registry.terraform.io/browse/providers
+Terraform Registry - one stop shop for intergrations (providers) and configuration packages (modules)
+                    - developed by HashiCorp, third-party verdors, and terraform community. 
+
+
+Terraform Configuration 
+    resource "aws_vpc" "main" {
+    cidr_block = var.base_cidr_block
+    }
+
+    <BLOCK TYPE> "<BLOCK LABEL>" "<BLOCK LABEL>" {
+    # Block body
+    <IDENTIFIER> = <EXPRESSION> # Argument
+    }
+
+
+commands
+    terraform Init 
+    terraform fmt 
+    terraform validate 
+    terraform plan
+    terraform apply
+    terraform destroy
+
+Deploy infrastructure w/ terraform:
+    * Scope - Identify the inf. for your project
+    * Author - write the config for your inf.
+    * Initialize - install the plugins tf needs
+    * Plan - preview the changes tf will make
+    * Apply - make the planned changes 
+
+Pedagogy
+    - What it terraform / quick tutorial
+    - install tf
+    - build inf -> change inf > destroy inf
+    - define input var 
+
+install tf (mac)
+    * brew tap hashicorp/tap
+    * brew install hashicorp/tap/terraform
+        * brew update && brew upgrade hashicorp/tap/terraform
+    * terraform -help OR terraform -help plan 
+    ** https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
+    
+Credentials
+    export AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY_ID>"
+    export AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
+    export AWS_DEFAULT_REGION="<YOUR_AWS_DEFAULT_REGION>"   // ex. us-east-2
