@@ -50,6 +50,7 @@ spring
 	* docker push 	// if denied, docker login (if it wont, delete ~/.docker/config.json)
 
 
+* IP = 192.168.99.100
 	** compile code with java 8 So docker java build could be smaller in size.
 
 		** https://www.cprime.com/resources/blog/docker-for-mac-with-homebrew-a-step-by-step-tutorial/
