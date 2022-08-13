@@ -1,0 +1,6 @@
+Command Mode    = Esc
+Insert Mode     = i 
+
+save    = :wq
+quit    = :q!
+ 

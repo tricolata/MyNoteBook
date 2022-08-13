@@ -3,3 +3,11 @@ Add vscode to $path (permenantly)
     # Add Visual Studio Code (code)
     export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
     EOF
+
+Key Bindings                    = Code > Preferences > Keyboard Shortcuts
+setting                         = CMD + SHIFT + P 
+Open terminal as editor         = setting > 'Terminal: Create Terminal in Editor Area'
+quit tab                        = CMD + W 
+toggle bn editor & explorer     = CMD + 0/1
+toggle side panel               = CMD + B 
+toggle Activity Bar             = CMD + M 
