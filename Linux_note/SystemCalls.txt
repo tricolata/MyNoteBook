@@ -39,4 +39,4 @@ For example, it hides details of memory and present it to programmer as huge chu
 Most application does not care about the detail but if needed, we can access
 system calls (memory management system calls) to have direct access. 
 
-8)  
+8) This is just for demo
