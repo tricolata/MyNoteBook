@@ -38,5 +38,3 @@ portibility is important.
 For example, it hides details of memory and present it to programmer as huge chunk(virtual memory)
 Most application does not care about the detail but if needed, we can access
 system calls (memory management system calls) to have direct access. 
-
-8) This is just for demo
