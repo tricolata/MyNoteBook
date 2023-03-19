@@ -1,0 +1,7 @@
+Linux 	- open-source Operating system
+	- Hardware > Linux Kernel > GNU Core > X Server > Graphical Interface
+
+Network
+	- DNS
+	- Routes
+	
