@@ -2,3 +2,18 @@ Role of Exception
     Working with try/catch blocks
     implementing cleanup with finally
     automating cleanup
+
+Common Errors & Exceptions
+	Checked Exceptions (required to handle)
+		IOException - This exception is typically a way to say that something on the network, filesystem, or database failed.
+	Unchecked Exceptions (not required)
+		ArrayIndexOutOfBoundsException – this exception means that we tried to access a non-existent array index, like when trying to get index 5 from an array of length 3.
+		ClassCastException – this exception means that we tried to perform an illegal cast, like trying to convert a String into a List. We can usually avoid it by performing defensive instanceof checks before casting.
+		IllegalArgumentException – this exception is a generic way for us to say that one of the provided method or constructor parameters is invalid.
+		IllegalStateException – This exception is a generic way for us to say that our internal state, like the state of our object, is invalid.
+		NullPointerException – This exception means we tried to reference a null object. We can usually avoid it by either performing defensive null checks or by using Optional.
+		NumberFormatException – This exception means that we tried to convert a String into a number, but the string contained illegal characters, like trying to convert “5f3” into a number.
+	Error
+		StackOverflowError – this exception means that the stack trace is too big. This can sometimes happen in massive applications; however, it usually means that we have some infinite recursion happening in our code.
+		NoClassDefFoundError – this exception means that a class failed to load either due to not being on the classpath or due to failure in static initialization.
+		OutOfMemoryError –  this exception means that the JVM doesn't have any more memory available to allocate for more objects. Sometimes, this is due to a memory leak.

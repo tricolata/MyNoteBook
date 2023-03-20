@@ -1,0 +1,18 @@
+Installation
+	- brew install mysql
+	- brew services start mysql or mysql.server start
+	- mysql_secure_installation
+	- mysql -u root -p
+
+Commands
+	- CREATE DATABASE database_name;
+	- USE db_name;
+	- SHOW DATABASE;
+	
+	- CREATE TABLE table_name (
+		column_name
+	)
+	- DESCRIBE table_name;
+	- CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
+	- GRANT PRIVILEGE ON database.table TO 'username'@'host';
+	- FLUSH PRIVILEGES;	// not necessary
