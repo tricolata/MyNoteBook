@@ -14,5 +14,7 @@ Commands
 	)
 	- DESCRIBE table_name;
 	- CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
-	- GRANT PRIVILEGE ON database.table TO 'username'@'host';
+	- GRANT ALL PRIVILEGES ON database.table TO 'username'@'host';
 	- FLUSH PRIVILEGES;	// not necessary
+
+

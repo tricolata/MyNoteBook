@@ -1,0 +1,18 @@
+Hibernate ORM enables developers to more easily write applications whose data outlives the application process.
+** Implementation of JPA specification.
+** JPA itself is just a specification, not a product; it cannot perform persistence or anything else by itself. JPA is just a set of interfaces, and requires an implementation
+The Java Persistence API (JPA) is a Java specification for accessing, persisting, and managing data between Java objects / classes and a relational database
+
+Spring App > JDBC > JPA > DB 
+
+JDBC - is the JavaSoft specification of a standard application programming interface (API) that allows Java programs to access database management systems.
+** The JDBC API defines the Java interfaces and classes that programmers use to connect to databases and send queries. 
+** A JDBC driver implements these interfaces and classes for a particular DBMS vendor.
+
+DAO - isolate the application/business layer from the persistence layer (usually a relational database but could be any other persistence mechanism) using an abstract API
+
+Learning
+    - ORM (https://hibernate.org/orm/what-is-an-orm/)
+    - 
+
+
