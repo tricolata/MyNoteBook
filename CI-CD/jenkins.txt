@@ -1,0 +1,6 @@
+Jenkins
+    - open-source automation server used to automate tasks related to building, testing & deploying software
+    - Installation 
+        - requires java (jre)
+
+Ubuntu
