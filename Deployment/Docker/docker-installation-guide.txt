@@ -1,0 +1,53 @@
+MacOs installation
+	brew
+		1 brew install docker --cask (installs the application)
+		2 manual installation 
+			1 brew install docker (installs the client)
+			2 brew install docker-machine (allows you to create docker VM)
+			3 brew install virtualbox --cask (VM manager )
+			4 docker-machine create --driver virtualbox default (creates vm named default on virtualbox)
+			5 docker-machine ls (verify vm default is created)
+			6 docker-machine env default (tell docker which machine to execute docker command to)
+			7 eval $(docker-machine env default) (connect shell zsh to new machine)
+			- ************use docker**********
+			8 docker-machine stop default
+
+			* openjdk - https://hub.docker.com/_/openjdk?tab=description&page=1
+			* process - https://medium.com/crowdbotics/a-complete-one-by-one-guide-to-install-docker-on-your-mac-os-using-homebrew-e818eb4cfc3
+			* to restart docker-machine after upgrade, 'brew services restart docker-machine'
+			* step 4 error : Error creating machine
+				- solution : https://stackoverflow.com/questions/70281938/docker-machine-unable-to-create-a-machine-on-macos-vboxmanage-returning-e-acces
+
+Linux Obuntu installation
+    1. Uninstall old versions
+        sudo apt-get remove docker docker-engine docker.io containerd runc
+    2. Set up repository
+        sudo apt-get update
+        sudo apt-get install ca-certificates curl gnupg
+
+        sudo mkdir -m 0755 -p /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+        echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    3. Install Docker 
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo docker run hello-world
+    4. After Installation
+        Add user to docker 
+            sudo usermod -aG docker $USER
+        Disable docker from running at startup
+            sudo systemctl disable docker.service
+            sudo systemctl disable containerd.service
+        Keep track of logs from container being stored in host machine.  
+    troubleshoot
+        GPG error?
+            sudo chmod a+r /etc/apt/keyrings/docker.gpg
+            sudo apt-get update
+
+- info
+	- by default, only root has privilage and other users must use sudo
+	- to change that, add users to docker group
+		- https://docs.docker.com/engine/install/linux-postinstall/
+
+- REFERENCE 
+	- https://docs.docker.com/engine/install/ubuntu/
