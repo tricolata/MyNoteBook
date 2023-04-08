@@ -21,7 +21,7 @@
 - OpenWrt (OPEN Wireless RouTer)
 	- is a Linux Operating System targeting embedded devices. Instead of trying to create a single, static firmware, OpenWrt provides a fully writable filesystem with package management.
 	- username: root
-	- password: SetantaOto78
+	- password: 78
 	
 	- OpenWrt intro walkthrough  
 		- LuCi is the web interface packet of openWrt
