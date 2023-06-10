@@ -1,0 +1,25 @@
+Kafka
+	Event Streaming is the practise of capturing data in real-time from event sources 
+		in the form of streams of events, storing them durably for later retrieval; 
+		routing the events to another destination.
+
+	Apache Kafka is an event streaming platform.
+
+
+	Kafka (Basic)
+		publish(write) and subsribe to (read) streams of events
+		store stream of events 
+		process streams of events as they occur
+
+		Client & Server setup (communicate via TCP)
+		Server 
+			Servers used as data storage (brokers) or Kafka connect (in-memory type)
+		Clients
+			Producers - client applications that publish events to Kafka 
+			Consumers - client applications that subsribe to those events in Kafka. 
+
+		Topics - Events are organized in topics. (similar to folders, and events are files)
+		Paritions - a topic is spread over number of "buckets" located on different brokers. 
+
+- zookeeper
+	- Client Port number : 2181
