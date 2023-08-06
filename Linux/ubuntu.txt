@@ -46,7 +46,7 @@ commands
 	- chmod
 		- change mode
 		- chmod 744 ~/photos/personal
-		- 744 (first number=owner permission, second=group permission, third=others
+		- 744 (first number=owner permission, second=group permission, third=others)
 		- 0 no perm 1- executes 2&3- write  4-7-read  
 	- locate
 		- search for a file
@@ -65,6 +65,20 @@ commands
 		- to compress, (tar -czvf name.tar.gz file) (uses gzip) ( .bz for bzip)
 	- wget	- download from link
 
+Mandane
+	Create user 
+		sudo adduser <name>	
+		cat /etc/passwd 	// find user
+		cat /etc/group		// find groups 
+		groups <user>		// find group(s) user belong to
+
+		sudo adduser <createUser> sudo // add user to group ex. sudo 
+		su -l <user> 	// log into user 
+
+Networking 
+	ls -l /sys/class/net 		// view current wireless interfaces 
+	sudo vim /etc/netplan/50-cloud..		// edit network config
+	sudo netplan apply 			// apply changes
 
 - set up printer
 - use wine for window applications
@@ -78,5 +92,3 @@ firewall
 	- If not, firestarter is a popular software available for firewalls. 
 	- To stop virus, find antivirus. clamAV is one opensource example. 
 	 
-
-
