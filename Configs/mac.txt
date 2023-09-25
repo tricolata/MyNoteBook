@@ -20,8 +20,18 @@ add user to group
 add user to sudo
 	https://zwbetz.com/add-your-account-as-a-sudoer-on-mac/
 
+Verifying SHA-512 checksum	
+	shasum -a 512 /full/path/to/your/file
+	echo "" | shasum -a 512 --check
+
 mariadb
 	brew services start mariadb
+
+Delete
+	Delete app from Applications directory 
+	Remove directories 
+		~/Library/Application Support/JetBrains/<product><version>
+		~/Library/Caches/JetBrains/<product><version>
 
 Terminal
 	- Oh My Zsh (https://github.com/ohmyzsh/ohmyzsh)
@@ -32,6 +42,7 @@ Safari
 	focus on address bar 	= CMD + L
 Collapse all windows
 	F11
+
 clean up 
 		- rm -rf ~/Library/Caches/<folder>   // user Caches
 		- sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed
