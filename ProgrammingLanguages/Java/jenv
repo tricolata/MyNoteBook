@@ -1,0 +1,4 @@
+View Java versions 	- jenv versions
+Switch Java version 	- jenv global XX 
+
+ref - https://stackoverflow.com/questions/26252591/mac-os-x-and-multiple-java-versions

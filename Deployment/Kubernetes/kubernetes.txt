@@ -2,7 +2,9 @@ Info about Kubernetes
 	- As numbers of containers grow in size, one can't just use command-line to keep track.
 	- Kubernetes solves this problem.
 
-	- Kubernetes - container-orchestration system.
+
+Kubernetes
+	- Open-source container orchestration engine for automating deployment, scaling, and managing containerized app.
 
 	- Approaches
 		- Imperative - Command Line
@@ -32,3 +34,4 @@ DB
 			- https://stackoverflow.com/questions/16325607/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock
 		
 	- https://goteleport.com/blog/microservices-containers-kubernetes/
+

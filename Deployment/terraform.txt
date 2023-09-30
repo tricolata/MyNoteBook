@@ -23,7 +23,7 @@ Terraform Configuration
 
 
 commands
-    terraform Init 
+    terraform init 
     terraform fmt 
     terraform validate 
     terraform plan
