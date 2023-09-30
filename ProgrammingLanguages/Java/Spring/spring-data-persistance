@@ -1,0 +1,23 @@
+Sprint Data JPA
+    - makes use of interfaces which have automatic implementation at runtime.
+    - the repository provides interfaces which we can extend. the data JPA framework will handle implementation.
+
+    - To extend the repository, we also need to make our model JPA entity.
+        - must have @Entity
+        - must have @Id on id
+        - must have empty contructor
+
+    - Implementation
+        - At runtime, Spring Injects a JDK dynamic proxy for the beans that extend the Repository interface
+        - The proxy implementation intercepts the repository interface method calls and delegates them to a generic underlying implementation.
+
+    - DataAccessException Hierarchy
+        - NonTransientDataAccessException
+        - TransientDataAccessException
+        - RecoverableDataAccessException
+        - ScriptException
+
+- H2
+    - If we use the default configuration, Spring Boot will search for entities and create the respective tables automatically on startup.
+    - However, sometimes we want to have more control over the database creation process, and that's when we can make use of the data.sql and schema.sql files.
+        - spring.jpa.hibernate.ddl-auto=none // if you use this option

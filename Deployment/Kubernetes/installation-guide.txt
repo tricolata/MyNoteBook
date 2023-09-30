@@ -1,0 +1,51 @@
+Ubuntu Installation (kubeadm)
+    Requirement
+        Compatible Linux host
+        2GB RAM
+        2 CPU
+        unique MAC for all nodes
+        Network connection bn all nodes 
+        Swap disabled
+        * Install a container runtime and kubeadm on all the hosts
+        
+    Check required ports    
+        CONTROL PLANE
+        6443 API
+        2379-2380 etcd
+        10250 API
+        10259 Scheduler
+        10257 ccm
+        WORKER NODES 
+        10250 kubelet
+        30000-32767 NodePort 
+        * nc 127.0.0.1 6443  // to check if port is open
+    Installing a Container Runtime 
+        Docker Engine (using cri-dockerd)	unix:///var/run/cri-dockerd.sock
+    Installing kubeadm, kubelet and kubectl
+        sudo apt-get update
+        sudo apt-get install -y apt-transport-https ca-certificates curl
+
+        sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+        echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+        sudo apt-get update
+        sudo apt-get install -y kubelet kubeadm kubectl
+        sudo apt-mark hold kubelet kubeadm kubectl
+    Configuring cgroup driver
+        use systemd
+        on container runtime, it automatically is on systemd
+        on kubeadm, 
+            kubectl edit cm kubelet-config -n kube-system
+            * edit 'cgroupDriver: systemd' under Kubelet: section 
+
+    **************************************************************
+
+    * After installing kubeadm and container runtime on all nodes 
+    Control Plane 
+        kubeadm init <arg>
+            choose a pod network add-on & verify if it needs to be passed as arg
+            kubectl apply -f <add-on.yaml>  
+                * kubectl get pods --all-namespaces // to verify if network add-on is added.
+    Worker Nodes
+
