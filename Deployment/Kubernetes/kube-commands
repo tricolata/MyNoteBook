@@ -1,0 +1,24 @@
+Version
+    - kubectl version
+
+Deploy
+    - kubectl apply -f platforms-depl.yaml
+
+Manage
+    - kubectl get deployments
+    - kubectl get pods
+    - kubectl get services
+    - kubectl delete deployment <deploymentName>
+    - kubectl delete svc <serviceName>
+    - kubectl rollout restart deployment <depl-file>
+    
+    // namespace
+    - kubectl get namespace
+    - kubectl get pods --namespace=<namespace name>
+
+    // storage
+    - kubectl get storageclass
+    - kubectl get pvc
+
+    // user secrets
+    - kubectl create secret generic mariadb1 --from-literal=KEY="VALUE"
