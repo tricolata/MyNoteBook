@@ -1,0 +1,78 @@
+Embedded Kafka
+
+Testing
+	1. Pub/Sub application
+	2. Pub application
+	3. Sub application
+
+
+************
+Pub/Sub App
+************
+
+@EnableKafka
+@SpringBootTest(classes = {KafkaController.class}) // Specify @KafkaListener class if its not the same class, or not loaded with test config
+@EmbeddedKafka(
+    partitions = 1, 
+    controlledShutdown = false,
+    brokerProperties = {
+        "listeners=PLAINTEXT://localhost:3333", 
+        "port=3333"
+})
+public class KafkaConsumerTest {
+    @Autowired
+    KafkaEmbedded kafkaEmbeded;
+
+    @Autowired
+    KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
+
+
+
+************
+Sub App
+************
+
+@TestConfiguration
+public class TestConfig {
+
+@Bean
+public ProducerFactory<String, String> producerFactory() {
+    return new DefaultKafkaProducerFactory<>(KafkaTestUtils.producerProps(kafkaEmbedded));
+}
+
+@Bean
+public KafkaTemplate<String, String> kafkaTemplate() {
+    KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
+    kafkaTemplate.setDefaultTopic(topic);
+    return kafkaTemplate;
+}
+
+
+
+*************************
+EMBEDDED KAFKA ANNOTATION
+*************************
+
+Annotation that can be specified on a test class that runs Spring for Apache Kafka based tests. Provides the following features over and above the regular Spring TestContext Framework:
+	Registers a EmbeddedKafkaBroker bean with the EmbeddedKafkaBroker.BEAN_NAME bean name.
+
+
+
+Example
+
+ @RunWith(SpringRunner.class)
+ @EmbeddedKafka
+ public class MyKafkaTests {
+
+    @Autowired
+    private EmbeddedKafkaBroker kafkaEmbedded;
+
+    @Value("${spring.embedded.kafka.brokers}")
+    private String brokerAddresses;
+ }
+
+
+
+
+???
+NewTopic class - What if topic already exist?

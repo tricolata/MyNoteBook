@@ -11,7 +11,11 @@ Manage
     - kubectl delete deployment <deploymentName>
     - kubectl delete svc <serviceName>
     - kubectl rollout restart deployment <depl-file>
-    
+
+    // cluster
+    - kubectl get events
+    - kubectl config view
+
     // namespace
     - kubectl get namespace
     - kubectl get pods --namespace=<namespace name>
