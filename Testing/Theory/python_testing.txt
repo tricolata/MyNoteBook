@@ -1,0 +1,77 @@
+Testing multiple components -- Integration testing. 
+... But if test fails, you dont know which component failed. 
+Unit Test is smaller test. Verify a single component is working. -- Unit Test.
+
+Test Runner
+ - The test runner is a special application designed for running tests, checking the output, 
+    and giving you tools for debugging and diagnosing tests and applications.
+- 3 popular ones. unittest (built-in), nose, pytest.  
+
+unittest
+requirements
+- You put your tests into classes as methods
+- You use a series of special assertion methods in the unittest.TestCase class 
+    instead of the built-in assert statement
+- run 'python -m unittest test'
+- python -m unittest discover -s tests (if name of directory is tests)
+- (intellij) cmd + shift + p > "python test"
+
+nose (nose2)
+- open source project that runs unittest written tests and include flags 
+    that simplify viewing test when you have hundrets or thousands of tests.
+- nose is discontinued and nose2 is the latest maintained project.
+
+pytest
+- also supports unittest test cases. but real advantage comes from writing pytest test cases.
+- Other features. allow built-in assert, filter by test case, ecosystem of plugins to extend 
+
+** execute integration test. "python -m unittest discover -s tests/integration"
+
+Before writing test
+    1. What do you want to test
+    2. Are you writing a unit test or integration test?
+
+Test Structure 
+    1. Create your inputs
+    2. Execute the code being tested, capturing output
+    3. Compare output with expected result
+
+Example 
+1. Imports sum() from the my_sum package you created
+2. Defines a new test case class called TestSum, which inherits from unittest.TestCase
+3. Defines a test method, .test_list_int(), to test a list of integers. The method .test_list_int() will:
+    - Declare a variable data with a list of numbers (1, 2, 3)
+    - Assign the result of my_sum.sum(data) to a result variable
+    - Assert that the value of result equals 6 by using the .assertEqual() 
+        method on the unittest.TestCase class
+4. Defines a command-line entry point, which runs the unittest test-runner .main()
+
+
+Best Practises writing assertions
+    - Make sure tests are repeatable and run your test multiple times to make sure 
+        it gives the same result every time
+    - Try and assert results that relate to your input data, 
+        such as checking that the result is the actual sum of values in the sum() example
+
+
+Testing data driven app
+    if app depend on db or data from outside, include test data inside fixture folder inside integration. 
+
+Testing in multiple environment
+    Tox - automates testing in diff env. Allows you to test diff python version or diff env properties.
+    pip install tox
+
+Fully automate testing by using CI/CD programs like Travis CI.
+
+
+Additional
+    Linter - review your code and comment on it. ex. flake8. 
+        another ex is black which is aggressive while flake8 is passive.
+    Keep your tests clean. Dont repeat. 
+    Test Performance degradation bn changes. (ex. pip install pytest-benchmark)
+    Test for security flaw. ex. pip install bandit
+
+* Where does pip install projects from?
+
+* How does radio frequency work?
+

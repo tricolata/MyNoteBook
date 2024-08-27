@@ -1,0 +1,6 @@
+TDD - Test-Driven Development
+
+    mantra - "test first, code later"
+    TDD forces you to clearly state your goal before you write your code. 
+
+TDD uses unit tests although other types of testing like intergration can adopt it. 

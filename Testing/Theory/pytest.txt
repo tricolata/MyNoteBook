@@ -1,0 +1,17 @@
+Pytest is a software testing framework.
+    - meaning it is a command-line tool that automatically finds tests you’ve written, 
+        runs the tests, and reports the results.
+
+Run
+    pytest  # searches in local dir
+    pytest <test>.py
+    pytest test_1.py test_2.py
+    pytest dir  
+    --tb=no # with no traceback
+
+Test Discovery
+    - Pass to pytest file, directory or specific test within a file.
+    - Naming convention
+        - Test file should be named test_<something>.py or <something>_test.py
+        - Methods and functions should be named test_<something>
+        - Test classes should be named Test<Something>
