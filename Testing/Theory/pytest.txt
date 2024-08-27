@@ -6,6 +6,8 @@ Run
     pytest  # searches in local dir
     pytest <test>.py
     pytest test_1.py test_2.py
+    pytest <test>.py::method
+    pytest <test>.py::TestClass::method
     pytest dir  
     --tb=no # with no traceback
 
@@ -15,3 +17,8 @@ Test Discovery
         - Test file should be named test_<something>.py or <something>_test.py
         - Methods and functions should be named test_<something>
         - Test classes should be named Test<Something>
+
+
+Chapter 2
+
+    * To explicitly fail a test, pytest.fail() could be used.
