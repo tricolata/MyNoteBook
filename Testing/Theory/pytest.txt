@@ -22,3 +22,19 @@ Test Discovery
 Chapter 2
 
     * To explicitly fail a test, pytest.fail() could be used.
+
+    - Testing for Expected Exception
+        - pytest.raises()
+        - https://docs.pytest.org/en/latest/reference/reference.html#exceptioninfo
+
+    - Arranging Test functions
+        - Keep assertions at the end. 
+        - Arrange-Act-Assert or Given-When-Then
+
+    - Running Tests 
+        Single test method              -- pytest path/test_module.py::TestClass::test_method 
+        All tests in a class            -- pytest path/test_module.py::TestClass
+        Single test function            -- pytest path/test_module.py::test_function
+        All tests in a module           -- pytest path/test_module.py
+        All tests in a directory        -- pytest path
+        Tests matching a name pattern   -- pytest -k pattern
